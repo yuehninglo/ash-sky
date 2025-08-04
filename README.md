@@ -1,0 +1,1 @@
+After a global nuclear event, you pilot a lightweight glider powered by thermals from radioactive deserts. Fly low to avoid radiation clouds, collect clean air canisters, and rescue other survivors.
