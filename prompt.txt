@@ -1,0 +1,18 @@
+file:///Users/yn/Documents/ash-sky/index.html
+
+I am creating a game which can be run in the browser.
+This game is a 2D game, the idea of this game is as below:
+1. This game will use Google map to show the real world.
+2. There will be a plane flying above the map, players can use arrow key to control the flying direction.
+3. The flying will be infinite, the plane will keep flying around the world if the player never exit the game.
+4. There will be a default altitude for the plane, players can scroll the mouse to zoom in and out, while 
+   zooming in, the map will display more details of the ground, the plane will also display more details 
+   of itself.
+5. The plane is a F15 fighter jet.
+6. At the right bottom of the screen, there will be a radar keep scanning things.
+7. A list of Latitude and longitude will be provided, once the plane fly near on of the location, players 
+   can see a dot blinking on the radar, and also can hear a beep beep sound.
+8. There will be a background sound like the sound in the fighter jet while playing the game.
+
+
+
