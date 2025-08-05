@@ -67,7 +67,7 @@ class FlightSimulator {
             // Create engine sound (continuous low frequency)
             this.engineSound = this.createEngineSound();
             // Create beep sound function
-            this.beepSound = this.createBeepSound();
+            // this.beepSound = this.createBeepSound();
         } catch (e) {
             console.log('Audio initialization failed:', e);
         }
@@ -244,32 +244,28 @@ class FlightSimulator {
         const baseSpeed = 0.0008; // Base movement speed
         const speedMultiplier = this.speed / 450; // Speed affects movement
         const moveSpeed = baseSpeed * speedMultiplier;
-
         // Calculate movement based on heading
         const headingRad = (this.heading - 90) * Math.PI / 180; // -90 to align with "up" being north
 
         if (this.keys['ArrowUp'] || this.keys['KeyW']) {
-            this.currentPosition.lat += moveSpeed * Math.sin(headingRad);
-            this.currentPosition.lng += moveSpeed * Math.cos(headingRad);
-            this.speed = Math.min(900, this.speed + 2);
-            moved = true;
-        }
-        
-        if (this.keys['ArrowDown'] || this.keys['KeyS']) {
-            this.currentPosition.lat -= moveSpeed * Math.sin(headingRad) * 0.7;
-            this.currentPosition.lng -= moveSpeed * Math.cos(headingRad) * 0.7;
+            console.log('headingRad -> ' + headingRad);
+            if (heading%365 >= -90 && heading%365 <= 90) {
+                this.currentPosition.lat += moveSpeed * Math.sin(headingRad) * 0.7;
+                this.currentPosition.lng -= moveSpeed * Math.cos(headingRad) * 0.7;
+            } else {
+                this.currentPosition.lat -= moveSpeed * Math.sin(headingRad) * 0.7;
+                this.currentPosition.lng += moveSpeed * Math.cos(headingRad) * 0.7;
+            }
             this.speed = Math.max(200, this.speed - 3);
             moved = true;
         }
         
         if (this.keys['ArrowLeft'] || this.keys['KeyA']) {
             this.heading -= 2.5;
-            if (this.heading < 0) this.heading += 360;
         }
         
         if (this.keys['ArrowRight'] || this.keys['KeyD']) {
             this.heading += 2.5;
-            if (this.heading >= 360) this.heading -= 360;
         }
 
         // Gradual speed decay when not accelerating
